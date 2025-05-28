@@ -1,5 +1,5 @@
 import css from './MovieReviews.module.css'
-import MovieCastItem from '../MovieCastItem/MovieCastItem'
+import MovieReviewsItem from '../MovieReviewsItem/MovieReviewsItem'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -17,23 +17,21 @@ export default function MovieReviews() {
         };
         axios.get(url, options).then((res) => setReviewsArray(res.data.results));
     }, [movieId])
-    if (reviewsArray.length >0) {
-        
-    return (
-        <div className={css.container}>
-            <h2 className={css.reviewsTitle}>The movie reviews:</h2>
-            <ul className={css.reviewsList}>
-                {reviewsArray.map((review) => {
-                    return (
-                        <li key={review.id} className={css.reviewsItem}>
-                            <p>{ review.author}</p>
-                            {/* <MovieReviewsItem /> */}
-                        </li>  
+
+    if (reviewsArray.length > 0) {
+        return (
+            <div className={css.container}>
+                <h2 className={css.reviewsTitle}>The movie reviews:</h2>
+                <ul className={css.reviewsList}>
+                    {reviewsArray.map((review) => {
+                        return (
+                            <li key={review.id} className={css.reviewsItem}>
+                                <MovieReviewsItem author={review.author} content={review.content} date={review.updated_at.substr(0, 10)} />
+                            </li>  
                     )
                 })}
             </ul>
-        </div>
-    )
+            </div>
+        )
     }
-    
 }
