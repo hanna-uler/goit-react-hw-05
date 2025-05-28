@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Outlet, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import css from "./MovieDetailsPage.module.css"
+import MovieDetailsBlock from "../../components/MovieDetailsBlock/MovieDetailsBlock";
 
 export default function MovieDetailsPage() {
     const { movieId } = useParams();
@@ -19,12 +20,13 @@ export default function MovieDetailsPage() {
     console.log(movie);
     if (movie) {
         return (
-        <div>
-            <h1>{movie.original_title}</h1>
+            <div>
+                <MovieDetailsBlock movie={movie}/>
+            {/* <h1>{movie.original_title}</h1>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`The poster of ${movie.original_title} movie.`} /> 
             <p>Movie Budget: ${ movie.budget}</p>
             <h3>The movie overview:</h3>
-            <p>{movie.overview}</p>
+            <p>{movie.overview}</p> */}
             <ul className={css.navMenu}>
                 <li>
                     <NavLink to='cast'>Cast</NavLink>
