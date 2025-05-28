@@ -1,26 +1,30 @@
+import { useEffect, useState } from 'react'
 import Navigation from '../../components/Navigation/Navigation'
 import MovieDetailsPage from '../MovieDetailsPage/MovieDetailsPage'
 import css from './MoviesPage.module.css'
+import axios from 'axios'
+import MovieList from '../../components/MovieList/MovieList'
+// import fetchMovies from '../../movies-api'
 
 
-export default function MoviesPage({}) {
+export default function MoviesPage() {
+    const [moviesArray, setMoviesArray] = useState([]);
+
+    useEffect(() => {
+        const url = 'https://api.themoviedb.org/3/trending/movie/week';
+        const options = {
+            headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNjUyODNiYTMxODQzNDY1YzY3NzQyYmMzM2U3Y2RhMyIsIm5iZiI6MTc0ODIzMTUxNC40ODk5OTk4LCJzdWIiOiI2ODMzZTU1YTcwMzE1ZjM0ODEyYjcxMTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._rMCNG9BRzj5XkY_P2maKWqXo77F7leFnuMpJqC45Qs'
+            }
+        };
+        axios.get(url, options).then((res) => setMoviesArray(res.data.results));
+    }, []);
+
     return (
         <div className={css.container}>
-            <Navigation />
             <h1>Movies Page</h1>
-            {/* <ul className={css.moviesList}>
-                {movies.map((movie) => {
-                    return (
-                        <li key={movie.id} className={css.movieItem} onClick={(e) => console.log("event.target: ", e.target)}>
-                            <MovieDetailsPage
-                                movieUrl={movie.someURL}
-                                // other props!
-                            />
-                        </li>
-                    )
-                })}
-            </ul> */}
-            {/* <Load more Btn */}
+            <h2>Trending movies of the week</h2>
+            {moviesArray.length > 0 && <MovieList movies={moviesArray} />}
         </div>
     )
 }

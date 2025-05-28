@@ -1,0 +1,15 @@
+.container {
+}
+.moviesList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.movieItem {
+  width: 240px;
+  height: 360px;
+  border: solid 1px black;
+}
+.movieTitle {
+}
