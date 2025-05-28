@@ -3,8 +3,9 @@ import Navigation from '../../components/Navigation/Navigation'
 
 export default function HomePage() {
     return (
-        <div>
-            <Navigation/>
+        <div className={css.container}>
+            <Navigation />
+            <h1>Home Page</h1>
         </div>
     )
 }

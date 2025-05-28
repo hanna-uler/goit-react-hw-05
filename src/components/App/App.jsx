@@ -11,7 +11,7 @@ import MovieReviews from '../../components/MovieReviews/MovieReviews'
 export default function App() {
 
   return (
-    <div>
+    <div className={css.container}>
       <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/movies' element={<MoviesPage/>} />
