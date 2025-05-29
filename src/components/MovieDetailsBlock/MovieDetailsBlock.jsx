@@ -1,7 +1,6 @@
 import css from './MovieDetailsBlock.module.css'
 
 export default function MovieDetailsBlock({movie}) {
-    console.log(movie);
   return (
     <div className={css.container}>
       <div className={css.infoBox}>

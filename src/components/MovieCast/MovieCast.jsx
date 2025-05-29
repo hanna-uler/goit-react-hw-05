@@ -16,7 +16,7 @@ export default function MovieCast() {
             }
         };
         axios.get(url, options).then((res) => setActorsArray(res.data.cast));
-    }, [movieId])
+    }, [movieId]);
     if (actorsArray.length >0) {
         
     return (
