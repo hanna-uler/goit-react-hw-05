@@ -7,20 +7,29 @@ import axios from 'axios';
 export default function MovieCast() {
     const { movieId } = useParams();
     const [actorsArray, setActorsArray] = useState([]);
-    
+    const [hasLoaded, setHasLoaded] = useState(false);
+
     useEffect(() => {
+        setHasLoaded(false);
         const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
         const options = {
             headers: {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNjUyODNiYTMxODQzNDY1YzY3NzQyYmMzM2U3Y2RhMyIsIm5iZiI6MTc0ODIzMTUxNC40ODk5OTk4LCJzdWIiOiI2ODMzZTU1YTcwMzE1ZjM0ODEyYjcxMTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._rMCNG9BRzj5XkY_P2maKWqXo77F7leFnuMpJqC45Qs'
             }
         };
-        axios.get(url, options).then((res) => setActorsArray(res.data.cast));
-    }, [movieId]);        
-    return (
-    <div>
-            {actorsArray.length > 0
-                ? <div className={css.container}>
+        axios.get(url, options)
+            .then((res) => {
+                setActorsArray(res.data.cast);
+                setHasLoaded(true);
+            })
+            .catch(() => {
+                setActorsArray([]);
+                setHasLoaded(true);
+            });
+    }, [movieId]);
+    if (hasLoaded && actorsArray.length > 0) {
+        return (
+            <div className={css.container}>
             <h2 className={css.castTitle}>The movie cast:</h2>
             <ul className={css.castList}>
                 {actorsArray.map((actor) => {
@@ -32,6 +41,10 @@ export default function MovieCast() {
                 })}
             </ul>
                 </div>
-            : <strong>Sorry, we don't have cast information for this movie at this time.</strong>}
-        </div>)
+        )
+    } else if (hasLoaded && actorsArray.length === 0) {
+        return (
+            <strong>Sorry, we don't have cast information for this movie at this time.</strong>
+        )
     }
+}
