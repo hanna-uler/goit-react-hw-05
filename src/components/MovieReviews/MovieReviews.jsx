@@ -27,7 +27,7 @@ export default function MovieReviews() {
                 setHasLoaded(true);
             });
     }, [movieId])
-    if (hasLoaded && reviewsArray.length > 0) {
+    if (reviewsArray.length > 0) {
         return (
             <div className={css.container}>
                 <h2 className={css.reviewsTitle}>The movie reviews:</h2>

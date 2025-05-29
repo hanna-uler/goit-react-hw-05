@@ -3,13 +3,18 @@ import MovieCastItem from '../MovieCastItem/MovieCastItem'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+
 
 export default function MovieCast() {
     const { movieId } = useParams();
     const [actorsArray, setActorsArray] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
+    // const [isError, setIsError] = useState(false);
+
 
     useEffect(() => {
+        // setIsError(false);
         setHasLoaded(false);
         const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
         const options = {
@@ -24,10 +29,10 @@ export default function MovieCast() {
             })
             .catch(() => {
                 setActorsArray([]);
-                setHasLoaded(true);
+                // setIsError(true);
             });
     }, [movieId]);
-    if (hasLoaded && actorsArray.length > 0) {
+    if (actorsArray.length > 0) {
         return (
             <div className={css.container}>
             <h2 className={css.castTitle}>The movie cast:</h2>
