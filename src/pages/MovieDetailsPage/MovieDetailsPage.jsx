@@ -22,11 +22,6 @@ export default function MovieDetailsPage() {
         return (
             <div>
                 <MovieDetailsBlock movie={movie}/>
-            {/* <h1>{movie.original_title}</h1>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`The poster of ${movie.original_title} movie.`} /> 
-            <p>Movie Budget: ${ movie.budget}</p>
-            <h3>The movie overview:</h3>
-            <p>{movie.overview}</p> */}
             <ul className={css.navMenu}>
                 <li>
                     <NavLink to='cast'>Cast</NavLink>
