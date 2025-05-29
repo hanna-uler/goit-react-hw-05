@@ -16,7 +16,7 @@ export default function Navigation() {
                 <NavLink to='/movies' className={({ isActive }) => {
                     return clsx(css.link, isActive && css.isActive)
                 }}>
-                <PiFilmReel />Movie Catalogue
+                <PiFilmReel />Movie Search
                 </NavLink>
             </nav>
         </div>

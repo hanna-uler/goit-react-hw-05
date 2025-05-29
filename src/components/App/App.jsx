@@ -7,6 +7,7 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 import MovieCast from '../../components/MovieCast/MovieCast'
 import MovieReviews from '../../components/MovieReviews/MovieReviews'
 import Navigation from '../Navigation/Navigation'
+import { Toaster } from 'react-hot-toast';
 
 
 export default function App() {
@@ -23,6 +24,10 @@ export default function App() {
         </Route>
         <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        duration="3000" />
     </div>
   )
 }
