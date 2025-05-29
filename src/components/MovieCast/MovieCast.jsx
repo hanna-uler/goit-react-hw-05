@@ -19,7 +19,7 @@ export default function MovieCast() {
     }, [movieId]);        
     return (
     <div>
-            {actorsArray.lenghts > 0
+            {actorsArray.length > 0
                 ? <div className={css.container}>
             <h2 className={css.castTitle}>The movie cast:</h2>
             <ul className={css.castList}>
