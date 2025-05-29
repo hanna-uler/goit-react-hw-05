@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react'
-import Navigation from '../../components/Navigation/Navigation'
-import MovieDetailsPage from '../MovieDetailsPage/MovieDetailsPage'
 import css from './MoviesPage.module.css'
 import axios from 'axios'
 import MovieList from '../../components/MovieList/MovieList'
-// import fetchMovies from '../../movies-api'
-
 
 export default function MoviesPage() {
     const [moviesArray, setMoviesArray] = useState([]);
