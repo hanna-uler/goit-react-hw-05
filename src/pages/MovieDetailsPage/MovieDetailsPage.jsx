@@ -3,6 +3,7 @@ import { useParams, Outlet, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import css from "./MovieDetailsPage.module.css"
 import MovieDetailsBlock from "../../components/MovieDetailsBlock/MovieDetailsBlock";
+import { RiArrowGoBackLine } from "react-icons/ri";
 
 export default function MovieDetailsPage() {
     const { movieId } = useParams();
@@ -17,20 +18,19 @@ export default function MovieDetailsPage() {
         };
         axios.get(url, options).then((res) => setMovie(res.data));
     }, [movieId])
-    console.log(movie);
-    if (movie) {
         return (
             <div>
-                <MovieDetailsBlock movie={movie}/>
-            <ul className={css.navMenu}>
-                <li>
-                    <NavLink to='cast'>Cast</NavLink>
-                </li>
-                <li>
-                    <NavLink to='reviews'>Reviews</NavLink>
-                </li>
-            </ul>
-            <Outlet />
+                {movie &&  <div>
+                <MovieDetailsBlock movie={movie} />
+                <ul className={css.navMenu}>
+                    <li>
+                        <NavLink to='cast'>Cast</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='reviews'>Reviews</NavLink>
+                    </li>
+                </ul>
+                <Link className={css.link} to='/'><RiArrowGoBackLine /> Back to Home</Link>
+            <Outlet /></div>}
         </div>
     )}
-}
