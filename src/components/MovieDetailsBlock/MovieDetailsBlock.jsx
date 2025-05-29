@@ -16,31 +16,31 @@ export default function MovieDetailsBlock({movie}) {
           <p className={css.overview}>{movie.overview}</p>
           <ul className={css.detailsList}>
             <li className={css.detailsItem}>
-              <strong>Release Date:</strong>
+              <strong>Release Date: </strong>
               {movie.release_date}
             </li>
             {movie.genres && (
               <li className={css.detailsItem}>
-                <strong>Genres:</strong>
+                <strong>Genres: </strong>
                 {movie.genres.map(g => g.name).join(', ')}
               </li>
             )}
             <li className={css.detailsItem}>
-              <strong>Runtime:</strong>
+              <strong>Runtime: </strong>
               {movie.runtime} min
             </li>
             <li className={css.detailsItem}>
-              <strong>Rating:</strong>
+              <strong>Rating: </strong>
               ⭐ {Math.round(movie.vote_average * 100) / 100} ({movie.vote_count} votes)
             </li>
             {movie.original_language && (
               <li className={css.detailsItem}>
-                <strong>Original Language:</strong>
+                <strong>Original Language: </strong>
                 {movie.original_language.toUpperCase()}
               </li>
             )}
             <li className={css.detailsItem}>
-              <strong>Country:</strong>
+              <strong>Country: </strong>
               {movie.origin_country}
             </li>
             {movie.homepage && (
