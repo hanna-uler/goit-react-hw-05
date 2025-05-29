@@ -4,12 +4,16 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 8px;
 }
 .movieItem {
   width: 240px;
-  height: 360px;
   border: solid 1px black;
+  padding: 4px;
 }
 .movieTitle {
+  text-align: center;
+}
+.detLink {
+  text-align: center;
 }

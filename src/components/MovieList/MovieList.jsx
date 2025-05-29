@@ -14,7 +14,7 @@ export default function MovieList({ movies }) {
                                     <li className={css.infoListItem}><h3 className={css.movieTitle}>{movie.title}</h3></li>
                                     <li className={css.infoListItem}><strong>Rating:</strong> ⭐ {Math.round(movie.vote_average * 100) / 100} ({movie.vote_count} votes)</li>
                                     <li className={css.infoListItem}><strong>Release date:</strong> {movie.release_date}</li>
-                                    <li className={css.infoListItem}><Link className={css.detLink} to={`/movies/${movie.id}`} >Details</Link></li>
+                                    <li className={css.infoListItem}><Link className={css.detLink} to={`/movies/${movie.id}`} >See The Details</Link></li>
                                 </ul>
                             </div>
                         </li>
