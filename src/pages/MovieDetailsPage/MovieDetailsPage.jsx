@@ -22,6 +22,7 @@ export default function MovieDetailsPage() {
     }, [movieId])
         return (
             <div>
+                <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
                 {movie &&  <div>
                 <MovieDetailsBlock movie={movie} />
                 <ul className={css.navMenu}>
@@ -32,7 +33,6 @@ export default function MovieDetailsPage() {
                         <NavLink to='reviews'>Reviews</NavLink>
                     </li>
                 </ul>
-                <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
             <Outlet /></div>}
         </div>
     )}
