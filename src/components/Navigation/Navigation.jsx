@@ -1,6 +1,8 @@
 import css from './Navigation.module.css'
 import { NavLink } from 'react-router-dom'
 import clsx from 'clsx'
+import { GiPopcorn } from 'react-icons/gi';
+import { PiFilmReel } from 'react-icons/pi';
 
 export default function Navigation() {
     return (
@@ -9,12 +11,12 @@ export default function Navigation() {
                 <NavLink to='/' className={({ isActive }) => {
                     return clsx(css.link, isActive && css.isActive)
                 }}>
-                    Home
+                    <GiPopcorn />Home
                 </NavLink>
                 <NavLink to='/movies' className={({ isActive }) => {
                     return clsx(css.link, isActive && css.isActive)
                 }}>
-                Movie Catalogue
+                <PiFilmReel />Movie Catalogue
                 </NavLink>
             </nav>
         </div>

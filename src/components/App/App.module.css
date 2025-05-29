@@ -1,6 +1,15 @@
 .container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
-img {
-  display: block;
-}
+
+/* .container * {
+  transition: all 0.2s ease-in-out;
+} */
