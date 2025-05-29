@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams, Outlet, Link, NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useParams, Outlet, Link, NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import css from "./MovieDetailsPage.module.css"
 import MovieDetailsBlock from "../../components/MovieDetailsBlock/MovieDetailsBlock";
@@ -8,6 +8,8 @@ import { RiArrowGoBackLine } from "react-icons/ri";
 export default function MovieDetailsPage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
+    const location = useLocation();
+    const backLinkRef = useRef(location.state);
 
     useEffect(() => {
         const url = `https://api.themoviedb.org/3/movie/${movieId}`;
@@ -30,7 +32,7 @@ export default function MovieDetailsPage() {
                         <NavLink to='reviews'>Reviews</NavLink>
                     </li>
                 </ul>
-                <Link className={css.link} to='/'><RiArrowGoBackLine /> Back to Home</Link>
+                <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
             <Outlet /></div>}
         </div>
     )}
