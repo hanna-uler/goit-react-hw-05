@@ -18,20 +18,21 @@ export default function MovieReviews() {
         axios.get(url, options).then((res) => setReviewsArray(res.data.results));
     }, [movieId])
 
-    if (reviewsArray.length > 0) {
-        return (
-            <div className={css.container}>
-                <h2 className={css.reviewsTitle}>The movie reviews:</h2>
-                <ul className={css.reviewsList}>
-                    {reviewsArray.map((review) => {
-                        return (
-                            <li key={review.id} className={css.reviewsItem}>
-                                <MovieReviewsItem author={review.author} content={review.content} date={review.updated_at.substr(0, 10)} />
-                            </li>  
-                    )
-                })}
-            </ul>
-            </div>
-        )
-    }
+    return (
+        <div className={css.container}>
+            {reviewsArray.length > 0
+                ? <div>
+                    <h2 className={css.reviewsTitle}>The movie reviews:</h2>
+                    <ul className={css.reviewsList}>
+                        {reviewsArray.map((review) => {
+                            return (
+                                <li key={review.id} className={css.reviewsItem}>
+                                    <MovieReviewsItem author={review.author} content={review.content} date={review.updated_at.substr(0, 10)} />
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+                : <strong>Sorry, we don't have reviws for this movie at this time.</strong>}</div>)
 }
+

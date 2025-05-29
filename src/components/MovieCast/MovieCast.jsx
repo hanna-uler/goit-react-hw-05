@@ -16,11 +16,11 @@ export default function MovieCast() {
             }
         };
         axios.get(url, options).then((res) => setActorsArray(res.data.cast));
-    }, [movieId]);
-    if (actorsArray.length >0) {
-        
+    }, [movieId]);        
     return (
-        <div className={css.container}>
+    <div>
+            {actorsArray.lenghts > 0
+                ? <div className={css.container}>
             <h2 className={css.castTitle}>The movie cast:</h2>
             <ul className={css.castList}>
                 {actorsArray.map((actor) => {
@@ -31,8 +31,7 @@ export default function MovieCast() {
                     )
                 })}
             </ul>
-        </div>
-    )
+                </div>
+            : <strong>Sorry, we don't have cast information for this movie at this time.</strong>}
+        </div>)
     }
-    
-}
