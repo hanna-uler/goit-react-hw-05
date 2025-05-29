@@ -21,7 +21,7 @@ export default function MovieDetailsPage() {
         axios.get(url, options).then((res) => setMovie(res.data));
     }, [movieId])
         return (
-            <div>
+            <div className={css.container}>
                 <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
                 {movie &&
                     <div>
