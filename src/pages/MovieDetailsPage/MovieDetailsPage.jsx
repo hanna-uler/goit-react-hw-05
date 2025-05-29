@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { useParams, Outlet, Link, NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import css from "./MovieDetailsPage.module.css"
@@ -23,16 +23,16 @@ export default function MovieDetailsPage() {
         return (
             <div>
                 <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
-                {movie &&  <div>
-                <MovieDetailsBlock movie={movie} />
-                <ul className={css.navMenu}>
-                    <li>
-                        <NavLink to='cast'>Cast</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='reviews'>Reviews</NavLink>
-                    </li>
-                </ul>
-            <Outlet /></div>}
-        </div>
+                {movie &&
+                    <div>
+                        <MovieDetailsBlock movie={movie} />
+                        <ul className={css.navMenu}>
+                            <li><NavLink to='cast'>Cast</NavLink></li>
+                            <li><NavLink to='reviews'>Reviews</NavLink></li>
+                        </ul>
+                        <Suspense fallback={<strong>The Content is Loading...</strong>}>
+                            <Outlet />
+                        </Suspense>
+                    </div>}
+            </div>
     )}
