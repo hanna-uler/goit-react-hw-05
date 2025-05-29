@@ -9,16 +9,18 @@ export default function MovieList({ movies }) {
                     return (
                         <li key={movie.id} className={css.movieItem} >
                             <div>
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={`The poster of ${movie.title} movie.`} />
-                                <h3 className={css.movieTitle}>{movie.title}</h3>
-                                <p>Release date: {movie.release_date}</p>
-                                <Link className={css.detLink} to={`/movies/${movie.id}`} >Details</Link>
+                                <img className={css.pic} src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={`The poster of ${movie.title} movie.`} />
+                                <ul className={css.infoList}>
+                                    <li className={css.infoListItem}><h3 className={css.movieTitle}>{movie.title}</h3></li>
+                                    <li className={css.infoListItem}><strong>Rating:</strong> ⭐ {Math.round(movie.vote_average * 100) / 100} ({movie.vote_count} votes)</li>
+                                    <li className={css.infoListItem}><strong>Release date:</strong> {movie.release_date}</li>
+                                    <li className={css.infoListItem}><Link className={css.detLink} to={`/movies/${movie.id}`} >Details</Link></li>
+                                </ul>
                             </div>
                         </li>
                     )
                 })}
             </ul>
-            {/* <Load more Btn */}
         </div>
     )
 }
