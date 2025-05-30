@@ -6,7 +6,10 @@ export default function MovieDetailsBlock({movie}) {
       <div className={css.infoBox}>
         <img
           className={css.pic}
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : '/images/poster-placeholder.jpg'
+          }
           alt={movie.title}
         />
         <div className={css.textInfo}>

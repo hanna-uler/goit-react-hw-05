@@ -8,10 +8,10 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 export default function HomePage() {
     const [moviesArray, setMoviesArray] = useState([]);
     const [isError, setIsError] = useState(false);
-    const token = import.meta.env.VITE_TMDB_TOKEN;
-
+    
     useEffect(() => {
         setIsError(false);
+        const token = import.meta.env.VITE_TMDB_TOKEN;
         const url = 'https://api.themoviedb.org/3/trending/movie/week';
         const options = {
             headers: {

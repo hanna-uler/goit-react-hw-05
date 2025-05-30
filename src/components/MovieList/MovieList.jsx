@@ -12,7 +12,13 @@ export default function MovieList({ movies }) {
                     return (
                         <li key={movie.id} className={css.movieItem} >
                             <div>
-                                <img className={css.pic} src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={`The poster of ${movie.title} movie.`} />
+                                <img
+                                    className={css.pic}
+                                    src={movie.backdrop_path
+                                        ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                                        :'/images/no-img-available-placeholder.jpg'}
+                                    alt={`The poster of ${movie.title} movie.`}
+                                />
                                 <ul className={css.infoList}>
                                     <li className={css.infoListItem}><h3 className={css.movieTitle}>{movie.title}</h3></li>
                                     <li className={css.infoListItem}><strong>Rating:</strong> ⭐ {Math.round(movie.vote_average * 100) / 100} ({movie.vote_count} votes)</li>

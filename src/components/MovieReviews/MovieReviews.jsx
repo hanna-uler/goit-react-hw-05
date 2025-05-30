@@ -8,10 +8,10 @@ export default function MovieReviews() {
     const { movieId } = useParams();
     const [reviewsArray, setReviewsArray] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
-    const token = import.meta.env.VITE_TMDB_TOKEN;
     
     useEffect(() => {
         setHasLoaded(false);
+        const token = import.meta.env.VITE_TMDB_TOKEN;
         const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
         const options = {
             headers: {

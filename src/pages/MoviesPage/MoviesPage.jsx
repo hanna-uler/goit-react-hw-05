@@ -12,23 +12,23 @@ export default function MoviesPage() {
     const query = searchParams.get("query") ?? "";
     const [debouncedQuery] = useDebounce(query, 300);
     const [isError, setIsError] = useState(false);
-    const token = import.meta.env.VITE_TMDB_TOKEN;
-
+    
     const changeSearchQuery = (e) => {
         const newQuery = e.target.value;
         const nextSearchParams = new URLSearchParams(searchParams);
-    
+        
         if (newQuery !== "") {
-          nextSearchParams.set("query", newQuery);
+            nextSearchParams.set("query", newQuery);
         } else {
-          nextSearchParams.delete("query");
+            nextSearchParams.delete("query");
         }
-    
+        
         setSearchParams(nextSearchParams);
     };
     
     useEffect(() => {
         setIsError(false);
+        const token = import.meta.env.VITE_TMDB_TOKEN;
         const url = `https://api.themoviedb.org/3/search/movie?query=${debouncedQuery}`;
         const options = {
             headers: {

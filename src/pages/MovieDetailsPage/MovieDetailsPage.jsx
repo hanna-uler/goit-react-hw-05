@@ -12,10 +12,10 @@ export default function MovieDetailsPage() {
     const location = useLocation();
     const backLinkRef = useRef(location.state);
     const [isError, setIsError] = useState(false);
-    const token = import.meta.env.VITE_TMDB_TOKEN;
-
+    
     useEffect(() => {
         setIsError(false);
+        const token = import.meta.env.VITE_TMDB_TOKEN;
         const url = `https://api.themoviedb.org/3/movie/${movieId}`;
         const options = {
             headers: {

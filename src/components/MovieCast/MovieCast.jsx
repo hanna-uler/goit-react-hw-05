@@ -11,11 +11,9 @@ export default function MovieCast() {
     const [actorsArray, setActorsArray] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
     // const [isError, setIsError] = useState(false);
-    const token = import.meta.env.VITE_TMDB_TOKEN;
-
+    
     useEffect(() => {
-        // setIsError(false);
-        setHasLoaded(false);
+        const token = import.meta.env.VITE_TMDB_TOKEN;
         const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
         const options = {
             headers: {
@@ -23,6 +21,8 @@ export default function MovieCast() {
                 Authorization: `Bearer ${token}`,
             }
         };
+        // setIsError(false);
+        setHasLoaded(false);
         axios.get(url, options)
             .then((res) => {
                 setActorsArray(res.data.cast);
