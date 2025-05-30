@@ -27,11 +27,11 @@ export default function HomePage() {
 
     return (
         <div className={css.container}>
-            <h1>Ready for Movie Night?</h1>
-            <h2>Trending Movies Right Now</h2>
+            <h1 className={css.header} >Ready for Movie Night?</h1>
+            <h2 className={css.subheader} >Trending Movies Right Now</h2>
             {moviesArray.length > 0 && <MovieList movies={moviesArray} />}
             {isError && <ErrorMessage/> }
-            <Link to='/movies'>Find your favorite movie here!</Link>
+            <Link  className={css.link} to='/movies'>Find your favorite movie here!</Link>
         </div>
     )
 }

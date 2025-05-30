@@ -1,3 +1,36 @@
+.container {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.navMenu {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #0077cc;
+}
+
+.isActive {
+  color: #0077cc;
+  font-weight: 700;
+}
+
+/* 
 .navMenu {
   display: flex;
   gap: 12px;
@@ -9,4 +42,4 @@
 
 .isActive {
   color: brown;
-}
+} */

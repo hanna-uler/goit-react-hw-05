@@ -43,7 +43,7 @@ export default function MoviesPage() {
 
     return (
         <div className={css.container}>
-            <h1>Search movie here</h1>
+            <h1 className={css.header}>Search movie here</h1>
             <input className={css.input} type="text" value={query} onChange={changeSearchQuery} />
             {moviesArray.length > 0 && <MovieList movies={moviesArray} />}
             {isError && <ErrorMessage/> }

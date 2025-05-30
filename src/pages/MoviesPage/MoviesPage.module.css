@@ -1,4 +1,28 @@
+.container {
+  padding: 20px;
+}
+.header {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
 .input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+}
+
+/* .input {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 6px;
@@ -12,7 +36,7 @@
 
 .movieItem {
   background-color: cadetblue;
-}
+} */
 
 /* My css from SearchBar
 .container {
