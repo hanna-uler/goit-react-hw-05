@@ -29,7 +29,7 @@ export default function MovieDetailsPage() {
     }, [movieId])
         return (
             <div className={css.container}>
-                <Link className={css.link} to={backLinkRef.current}><RiArrowGoBackLine /> Go Back</Link>
+                <Link className={css.link} to={backLinkRef.current ?? '/'}><RiArrowGoBackLine /> Go Back</Link>
                 {movie &&
                     <div>
                         <MovieDetailsBlock movie={movie} />
