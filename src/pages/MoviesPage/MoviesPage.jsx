@@ -12,6 +12,7 @@ export default function MoviesPage() {
     const query = searchParams.get("query") ?? "";
     const [debouncedQuery] = useDebounce(query, 300);
     const [isError, setIsError] = useState(false);
+    const token = import.meta.env.VITE_TMDB_TOKEN;
 
     const changeSearchQuery = (e) => {
         const newQuery = e.target.value;
@@ -32,7 +33,7 @@ export default function MoviesPage() {
         const options = {
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNjUyODNiYTMxODQzNDY1YzY3NzQyYmMzM2U3Y2RhMyIsIm5iZiI6MTc0ODIzMTUxNC40ODk5OTk4LCJzdWIiOiI2ODMzZTU1YTcwMzE1ZjM0ODEyYjcxMTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._rMCNG9BRzj5XkY_P2maKWqXo77F7leFnuMpJqC45Qs'
+                Authorization: `Bearer ${token}`,
             }
         };
         axios.get(url, options)

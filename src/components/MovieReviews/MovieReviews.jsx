@@ -8,13 +8,15 @@ export default function MovieReviews() {
     const { movieId } = useParams();
     const [reviewsArray, setReviewsArray] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
+    const token = import.meta.env.VITE_TMDB_TOKEN;
     
     useEffect(() => {
         setHasLoaded(false);
         const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
         const options = {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNjUyODNiYTMxODQzNDY1YzY3NzQyYmMzM2U3Y2RhMyIsIm5iZiI6MTc0ODIzMTUxNC40ODk5OTk4LCJzdWIiOiI2ODMzZTU1YTcwMzE1ZjM0ODEyYjcxMTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._rMCNG9BRzj5XkY_P2maKWqXo77F7leFnuMpJqC45Qs'
+                accept: 'application/json',
+                Authorization: `Bearer ${token}`,
             }
         };
         axios.get(url, options)
