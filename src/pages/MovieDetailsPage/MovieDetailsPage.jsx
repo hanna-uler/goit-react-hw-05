@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, Suspense } from "react";
 import { useParams, Outlet, Link, NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import css from "./MovieDetailsPage.module.css"
+import clsx from 'clsx'
 import MovieDetailsBlock from "../../components/MovieDetailsBlock/MovieDetailsBlock";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -29,13 +30,13 @@ export default function MovieDetailsPage() {
     }, [movieId])
         return (
             <div className={css.container}>
-                <Link className={css.link} to={backLinkRef.current ?? '/'}><RiArrowGoBackLine /> Go Back</Link>
+                <Link className={css.backlink} to={backLinkRef.current ?? '/'}><RiArrowGoBackLine /> Go Back</Link>
                 {movie &&
                     <div>
                         <MovieDetailsBlock movie={movie} />
                         <ul className={css.navMenu}>
-                            <li><NavLink to='cast'>Cast</NavLink></li>
-                            <li><NavLink to='reviews'>Reviews</NavLink></li>
+                            <li><NavLink to='cast' className={({ isActive }) => {return clsx(css.link, isActive && css.isActive)}}>Cast</NavLink></li>
+                            <li><NavLink to='reviews' className={({ isActive }) => {return clsx(css.link, isActive && css.isActive)}}>Reviews</NavLink></li>
                         </ul>
                         <Suspense fallback={<strong>The Content is Loading...</strong>}>
                             <Outlet />
