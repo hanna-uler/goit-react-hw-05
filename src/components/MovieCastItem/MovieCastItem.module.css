@@ -1,0 +1,24 @@
+.container {
+  background: #f9f9f9;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  padding: 1rem;
+}
+
+.actorPic {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.title {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.name {
+  font-weight: bold;
+}
