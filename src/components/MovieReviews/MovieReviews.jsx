@@ -47,7 +47,7 @@ export default function MovieReviews() {
                         })}
                     </ul>
                 </div>}
-            {hasLoaded && reviewsArray.length === 0 && <strong>Sorry, we don't have reviws for this movie at this time.</strong>}
+            {hasLoaded && reviewsArray.length === 0 && <strong>Sorry, we don't have reviews for this movie at this time.</strong>}
             {isError && <ErrorMessage/> }
         </div>
     )
